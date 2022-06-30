@@ -15,13 +15,17 @@ var storage = []
 
 
 function generatePassword() {
-  var getCount = prompt("Select a password length of at least 8 characters and no longer then 128 characters.", "Enter Value")
-  if (getCount => 8 && getCount < 129) {
+  var getCount = prompt("Select a password length of at least 8 characters and no longer then 128 characters.")
+  if (getCount > 7 && getCount < 129) {
     console.log("password is the correct length  " + getCount);
+  } else if (getCount = undefined) {
+    alert("Your password must be at least 8 characters long and no more then 128");
+    console.log("Pasword is incorrect length");
+    return
   } else {
     alert("Your password must be at least 8 characters long and no more then 128");
     console.log("Pasword is incorrect length");
-    generatePassword()
+    return
   }
 
   var getNum = confirm("Do you want numbers in your password?");
