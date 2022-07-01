@@ -40,18 +40,23 @@ function generatePassword() {
     var storage = lettersLower.concat(storage)
   }
 
-  var getUpper = confirm("Do you want uppercase letters?")
+  var getUpper = confirm("Do you want uppercase letters in your password?")
   if (getUpper == true) {
     console.log("Uppercase letters selected")
     var storage = lettersUpper.concat(storage)
     console.log(storage)
   }
 
-  var getChar = confirm("Do you want special characters? " + otherChar)
+  var getChar = confirm("Do you want special characters in your password? " + otherChar)
   if (getChar == true) {
     console.log("Characters selected");
     var storage = otherChar.concat(storage);
     console.log(storage);
+  }
+
+  if (getNum === false && getLower === false && getUpper === false && getChar === false) {
+    alert("You must select at least on character type.")
+    return
   }
 
   var loopHolder = parseInt(getCount, 10);
@@ -71,9 +76,6 @@ function generatePassword() {
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
 
 }
 
